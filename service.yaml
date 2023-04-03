@@ -1,0 +1,18 @@
+# Versión de la API
+apiVersion: v1
+# Definimos un servicio
+kind: Service
+# Metadatos del servicio
+metadata:
+  name: despliegueivan-http
+# Características del servicio
+spec:
+  # Tipo de servicio
+  type: LoadBalancer
+  # Puerto a exponer
+  ports:
+    - port: 6000
+      targetPort: 6000
+  # A qué aplica el servicio, busca los que coincidan con app: midespliegue para servir
+  selector:
+    app: despliegueivan
